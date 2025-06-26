@@ -34,7 +34,7 @@ jobs:
       - name: Print current date and time
         run: date
 
-      - name: Display contents of README
+      - name: Display contents 
         run: cat README.md 
 
   thirdjob:
