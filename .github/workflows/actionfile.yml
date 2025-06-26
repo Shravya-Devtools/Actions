@@ -1,0 +1,51 @@
+name: Basic Workflow
+
+on:
+  push:
+    branches:
+      - main  # Trigger on commits to main branch
+
+  workflow_dispatch:  # Manual trigger from GitHub UI
+
+jobs:
+  firstjob:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show current directory
+        run: pwd
+
+      - name: List all files
+        run: ls -la
+
+      - name: Echo message
+        run: echo "Triggered by commit to main OR manual run!"
+
+  secondjob:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Print current date and time
+        run: date
+
+      - name: Display contents of README
+        run: cat README.md 
+
+  thirdjob:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: print the IP
+        run: hostname -i
+
+      - name: Print system information
+        run: uname -a
